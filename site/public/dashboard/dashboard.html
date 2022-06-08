@@ -30,12 +30,22 @@
             <h1>2Sense</h1>
 
             <div class="hello">
-                <img style="height: 150px; border-radius: 30px; border: 10px double white; padding: 3px;" class="conteudo-principal-loja"
-                    src="../assets/img/carrefour-paulista-frente.png" alt="Imagem carrinho de mercado.">
+                <img style="height: 150px; border-radius: 30px; border: 10px double white; padding: 3px;"
+                    class="conteudo-principal-loja" src="../assets/img/carrefour-paulista-frente.png"
+                    alt="Imagem carrinho de mercado.">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3><br>
                 <h4>E-mail: <span id="b_email">usuário</span></h4>
+                <br><br>
+
+                <a class="btn-nav" href="../tela-perfil.html">Perfil</a>
+                <br>
+                <a class="btn-nav" href="../Tela-lojas.html">Filiais</a>
+                <br>
+                <a class="btn-nav" style="cursor: pointer;" onclick="location.href='https://qrco.de/bd5ad9';">Manual</a>
+
             </div>
-            
+            <br><br>
+
 
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
@@ -68,8 +78,8 @@
                         <h2>Mais de 101</h2>
                     </div>
                 </div>
-                
-                
+
+
             </div>
             <div>
                 <h3 class="tituloGraficos">
@@ -80,18 +90,19 @@
                 <canvas id="canvas_grafico"></canvas>
             </div>
             <center>
-             <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-    <button class="btn-chart btn-white" onclick="obterDadosGrafico(1)">Setor de Rotisseria</button>
-    <!-- <button class="btn-chart btn-white" onclick="obterDadosGrafico(2)">Setor 2</button> -->
-    <!-- <button class="btn-chart btn-white" onclick="obterDadosGrafico(3)">Setor 3</button> -->
-    <!-- <button class="btn-chart btn-white" onclick="obterDadosGrafico(4)">Setor 4</button> -->
-</center>
+                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+                <button class="btn-chart btn-white" onclick="obterDadosGrafico(1)">Setor de Rotisseria</button>
+                <!-- <button class="btn-chart btn-white" onclick="obterDadosGrafico(2)">Setor 2</button> -->
+                <!-- <button class="btn-chart btn-white" onclick="obterDadosGrafico(3)">Setor 3</button> -->
+                <!-- <button class="btn-chart btn-white" onclick="obterDadosGrafico(4)">Setor 4</button> -->
+            </center>
         </div>
-        
-    </div>
-   
 
-    <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=802322d7-10a2-4063-aba1-a4f12521c280"> </script>
+    </div>
+
+
+    <script id="ze-snippet"
+        src="https://static.zdassets.com/ekr/snippet.js?key=802322d7-10a2-4063-aba1-a4f12521c280"> </script>
 
 </body>
 
@@ -126,7 +137,7 @@
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function obterDadosGrafico(idAquario) {
-        
+
         alterarTitulo(idAquario)
         console.log("entrei na função");
         //if (proximaAtualizacao != undefined) {
@@ -141,10 +152,10 @@
 
             if (response.ok) {
                 console.log(response)
-               response.json().then(function(resposta){
-                   console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                   //resposta.reverse();
-                   console.log(resposta);
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    //resposta.reverse();
+                    console.log(resposta);
                     plotarGrafico(resposta, idAquario);
                 })
 
